@@ -25,7 +25,10 @@
       color:var(--text);
       line-height:1.9;
     }
-    a{color:inherit}
+a{
+  color:inherit;
+  text-decoration:none;
+}
     .wrap{
       max-width:var(--max);
       margin:0 auto;
@@ -193,84 +196,44 @@
     }
     .cta-btn small{display:block; font-weight:700; opacity:.85}
 
-    /* 底部固定 bar（GIF + 撥打） */
-    .sticky-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .sticky-text{
-      flex:1;
-      font-size:13px;
-      color:#222;
-      line-height:1.45;
-    }
-    .sticky-text strong{
-      display:block;
-      font-size:14px;
-      margin-bottom:2px;
-    }
-    .sticky-call{
-      flex-shrink:0;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 12px;
-      border-radius:999px;
-      background:linear-gradient(135deg,#ff4d4d,#c81e3a);
-      color:#fff;
-      text-decoration:none;
-      font-weight:900;
-      font-size:13px;
-      border:0;
-      white-space:nowrap;
-    }
-    .sticky-call span{display:block; font-size:11px; opacity:.9}
-
     @media (min-width:720px){
       h1{font-size:32px}
       .card{padding:22px 22px}
       .cta{padding:20px 22px}
-      .sticky{padding:10px 16px}
     }
-  </style>
-  /* ===== 置底 GIF CTA（新版，不裁切、不白邊） ===== */
+    /* ===== 置底 GIF CTA（不超出頁面、手機滿版、桌機剛好） ===== */
 .sticky{
   position:fixed;
   left:0;
   right:0;
   bottom:0;
-  background:transparent;   /* 沒白底 */
-  border:none;
-  box-shadow:none;
   z-index:999;
-  padding:0;
+  background:transparent;
+  padding:0 16px 12px;   /* 左右留 16px，避免貼邊超出 */
 }
 
 .sticky-inner{
-  max-width:100%;
+  max-width:var(--max);  /* 跟正文同寬 */
   margin:0 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:0;
 }
 
-/* GIF 本體 */
+.sticky-inner a{
+  display:block;
+  width:100%;
+}
+
 .sticky-gif-full{
   display:block;
   width:100%;
-  margin:0 auto;
+  max-width:100%;
+  height:auto;
+  border-radius:12px;
 }
 
-/* 桌機放大、手機滿版 */
-@media (min-width:768px){
-  .sticky-gif-full{
-    max-width:720px; /* 可調 680~760 */
-  }
-}
+/* 保險：如果有任何地方造成橫向溢出，直接截掉 */
+body{ overflow-x:hidden; }
+
+  </style>
 </head>
 
 <body>
@@ -581,6 +544,7 @@ style="width:100%; border-radius:12px; margin:10px 0 4px;"
 </div>
 </body>
 </html>
+
 
 
 
