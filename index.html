@@ -194,34 +194,12 @@
     .cta-btn small{display:block; font-weight:700; opacity:.85}
 
     /* 底部固定 bar（GIF + 撥打） */
-    .sticky{
-      position:fixed;
-      left:0; right:0; bottom:0;
-      background:#fff;
-      border-top:1px solid var(--line);
-      box-shadow:0 -10px 24px rgba(16,24,40,.14);
-      z-index:999;
-      padding:8px 10px;
-    }
     .sticky-inner{
       max-width:var(--max);
       margin:0 auto;
       display:flex;
       align-items:center;
       gap:10px;
-    }
-    .sticky-gif{
-      width:56px; height:56px;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid var(--line);
-      background:#000;
-      flex-shrink:0;
-    }
-    .sticky-gif img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
     }
     .sticky-text{
       flex:1;
@@ -258,6 +236,41 @@
       .sticky{padding:10px 16px}
     }
   </style>
+  /* ===== 置底 GIF CTA（新版，不裁切、不白邊） ===== */
+.sticky{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  background:transparent;   /* 沒白底 */
+  border:none;
+  box-shadow:none;
+  z-index:999;
+  padding:0;
+}
+
+.sticky-inner{
+  max-width:100%;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:0;
+}
+
+/* GIF 本體 */
+.sticky-gif-full{
+  display:block;
+  width:100%;
+  margin:0 auto;
+}
+
+/* 桌機放大、手機滿版 */
+@media (min-width:768px){
+  .sticky-gif-full{
+    max-width:720px; /* 可調 680~760 */
+  }
+}
 </head>
 
 <body>
@@ -554,19 +567,13 @@ style="width:100%; border-radius:12px; margin:10px 0 4px;"
   </main>
 
 <div class="sticky" aria-label="置底固定撥打按鈕">
-  <div class="sticky-inner" style="justify-content:center;">
+  <div class="sticky-inner">
 
     <a href="tel:0800282777" style="display:block; width:100%;">
       <img
         src="images/09CTA.gif"
         alt="健康管理師一對一諮詢服務"
-        style="
-          width:100%;
-          max-width:420px;
-          display:block;
-          margin:0 auto;
-          border-radius:12px;
-        "
+        class="sticky-gif-full"
       />
     </a>
 
@@ -574,6 +581,7 @@ style="width:100%; border-radius:12px; margin:10px 0 4px;"
 </div>
 </body>
 </html>
+
 
 
 
