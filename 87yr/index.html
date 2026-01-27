@@ -161,6 +161,158 @@
       margin-left:6px;
       font-weight:700;
     }
+/* --- 做法C：站內留言系統UI --- */
+.cmt-ui{
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+  padding:14px;
+}
+.cmt-bar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.cmt-bar .left{
+  display:flex; gap:10px; align-items:baseline; flex-wrap:wrap;
+}
+.cmt-count{
+  font-weight:900;
+  font-size:16px;
+}
+.cmt-hint{
+  font-size:12px;
+  color:var(--muted);
+}
+.cmt-controls{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.cmt-select{
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  font-size:13px;
+  padding:8px 30px 8px 10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:
+    linear-gradient(45deg, transparent 50%, #667085 50%),
+    linear-gradient(135deg, #667085 50%, transparent 50%),
+    linear-gradient(to right, #fff, #fff);
+  background-position:
+    calc(100% - 16px) calc(50% - 3px),
+    calc(100% - 11px) calc(50% - 3px),
+    0 0;
+  background-size:5px 5px, 5px 5px, 100% 100%;
+  background-repeat:no-repeat;
+  color:var(--text);
+}
+.cmt-login{
+  font-size:12px;
+  color:var(--muted);
+  border:1px dashed var(--line);
+  padding:8px 10px;
+  border-radius:12px;
+  background:#fafbfc;
+}
+.cmt-form{
+  margin-top:10px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px;
+  background:#fafbfc;
+}
+.cmt-form textarea{
+  width:100%;
+  min-height:84px;
+  resize:vertical;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px 12px;
+  font-size:14px;
+  line-height:1.7;
+  outline:none;
+  background:#fff;
+}
+.cmt-form .row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:8px;
+}
+.cmt-form .note{
+  font-size:12px;
+  color:var(--muted);
+}
+.cmt-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#fff;
+  font-weight:900;
+  font-size:13px;
+  color:#111827;
+}
+.cmt-btn[disabled]{
+  opacity:.55;
+  cursor:not-allowed;
+}
+.cmt-rules{
+  margin-top:10px;
+  font-size:12px;
+  color:var(--muted);
+}
+.cmt-rules code{
+  font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:12px;
+  background:#f2f4f7;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:1px 6px;
+}
+.cmt-loadmore{
+  margin-top:12px;
+}
+.cmt-loadmore .cmt-btn{
+  width:100%;
+  background:#f2f4f7;
+}
+
+/* 原本留言卡片 .comment 稍微升級一下質感 */
+.comment{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px 12px;
+  background:#fff;
+  margin:10px 0;
+}
+.comment .who{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  font-weight:900;
+  margin:0 0 6px;
+}
+.comment .meta{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+}
+.comment .stamp{
+  margin-left:auto;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+}
 
     /* CTA（若你之後要加） */
     .cta{
@@ -507,29 +659,88 @@ style="width:100%; border-radius:12px; margin:10px 0 4px;"
 </a>
     </section>
 
-    <section class="card">
-      <h2>留言區</h2>
+<section class="card">
+  <h2>留言區</h2>
 
-      <div class="comment">
-        <p class="who">張先生 <span class="meta">｜61 歲</span></p>
-        <p>以前不會特別去想這些，現在真的有感覺精神跟體力有差</p>
+  <!-- 做法C：站內留言系統UI -->
+  <div class="cmt-ui">
+
+    <div class="cmt-bar">
+      <div class="left">
+        <div class="cmt-count">🔥 已有 1,284 則留言</div>
+        <div class="cmt-hint">依熱門排序｜更新：剛剛</div>
       </div>
 
-      <div class="comment">
-        <p class="who">匿名 <span class="meta">｜68 歲</span></p>
-        <p>到這個年紀，大家都馬剩一張嘴，還可以就已經很厲害了</p>
+      <div class="cmt-controls">
+        <select class="cmt-select" aria-label="留言排序">
+          <option selected>熱門</option>
+          <option>最新</option>
+          <option>最舊</option>
+        </select>
       </div>
+    </div>
 
-      <div class="comment">
-        <p class="who">陳先生 <span class="meta">｜59 歲</span></p>
-        <p>有些話寫得蠻直接的，但也算實在<br/>早一點看到的話，我可能會少走一些彎路</p>
-      </div>
+    <div class="cmt-login">
+      以訪客身分瀏覽中（登入後可留言）｜<u>Google</u>｜<u>LINE</u>｜<u>Facebook</u>
+    </div>
 
-      <div class="comment">
-        <p class="who">王先生 <span class="meta">｜63 歲</span></p>
-        <p>其實很多人都只是在騙自己！本來只是想隨便看看，結果一不小心就看完了</p>
+    <!-- 留言卡片：你原本的 4 則，改成「有時間戳＋讚＋回覆」的樣子 -->
+    <div class="comment">
+      <p class="who">
+        張先生 <span class="meta">｜61 歲</span>
+        <span class="stamp">2 小時前</span>
+      </p>
+      <p>以前不會特別去想這些，現在真的有感覺精神跟體力有差</p>
+      <p class="meta">👍 128　・　💬 回覆 6　・　🚩 檢舉</p>
+    </div>
+
+    <div class="comment">
+      <p class="who">
+        匿名 <span class="meta">｜68 歲</span>
+        <span class="stamp">4 小時前</span>
+      </p>
+      <p>到這個年紀，大家都馬剩一張嘴，還可以就已經很厲害了</p>
+      <p class="meta">👍 92　・　💬 回覆 3　・　🚩 檢舉</p>
+    </div>
+
+    <div class="comment">
+      <p class="who">
+        陳先生 <span class="meta">｜59 歲</span>
+        <span class="stamp">昨天</span>
+      </p>
+      <p>有些話寫得蠻直接的，但也算實在<br/>早一點看到的話，我可能會少走一些彎路</p>
+      <p class="meta">👍 211　・　💬 回覆 12　・　🚩 檢舉</p>
+    </div>
+
+    <div class="comment">
+      <p class="who">
+        王先生 <span class="meta">｜63 歲</span>
+        <span class="stamp">2 天前</span>
+      </p>
+      <p>其實很多人都只是在騙自己！本來只是想隨便看看，結果一不小心就看完了</p>
+      <p class="meta">👍 167　・　💬 回覆 9　・　🚩 檢舉</p>
+    </div>
+
+    <!-- 假留言輸入框（disabled，避免真的可輸入造成破綻） -->
+    <div class="cmt-form" aria-label="留言輸入區">
+      <textarea placeholder="登入後即可留言（此區僅供展示）" disabled></textarea>
+      <div class="row">
+        <div class="note">請勿留下個資／電話／地址（系統會自動遮蔽）</div>
+        <button class="cmt-btn" disabled>送出留言</button>
       </div>
-    </section>
+      <div class="cmt-rules">
+        小提醒：含 <code>LINE</code>、<code>電話</code>、<code>折扣</code> 等字樣可能會被系統審核延後顯示。
+      </div>
+    </div>
+
+    <!-- 載入更多 -->
+    <div class="cmt-loadmore">
+      <button class="cmt-btn" type="button" disabled>載入更多留言</button>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- ✅（可選）如果這頁也要導到官網 landing 或表單/LINE/電話，把 CTA 放這裡
     <section class="cta">
