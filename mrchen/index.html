@@ -456,7 +456,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <!-- CTA：填表登記 -->
       <div class="cta-wrap">
-        <a href="https://jah.to/JIC001" target="_blank" rel="noopener" data-cta="outbound" data-label="form_register">
+        <a href="https://jah.to/JIC001"
+          target="_blank"
+          rel="noopener"
+          data-cta="outbound"
+          data-label="form_register"
+          onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'cta_click','cta':'form_register','target':'jah_to_form'});">
           <img class="cta-img" src="./images/04填表登記.gif" alt="填表登記索取甲魚膠優惠" loading="lazy" />
         </a>
       </div>
@@ -466,7 +471,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h2>「早知道，我早一點就開始顧了。」</h2>
       <p>
         這是他現在最常掛在嘴邊的話。不是後悔，只是感慨。
-        他說，年輕的時候覺得吃這些東西是老人家擔心過了頭，自己的身體自己知道，出問題再說就好。但後來才懂，關節這東西不一樣，它不像感冒，發燒了吃個藥就退，等到真的出狀況，往往已經退化了好幾年了
+        他說，年輕的時候覺得吃這些東西是老人家擔心過了頭，自己的身體自己知道，出問題再說就好。但後來才懂，關節這東西不一樣，它不像感冒，發燒了吃個藥就退，等到真的出狀況，往往已經退化了好幾年了。
       </p>
       <p>
         尤其像他這種動過刀的，本來就是高風險群。醫師當年那句「以後一定比別人退化得快」不是嚇他的，是真的。
@@ -494,9 +499,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <!-- CTA -->
       <div class="cta-wrap">
-        <a href="https://jah.to/JIC001" target="_blank" rel="noopener" data-cta="outbound" data-label="form_register_2">
-          <img class="cta-img" src="./images/04填表登記.gif" alt="填表登記索取甲魚膠優惠" loading="lazy" />
-        </a>
+      <a href="https://jah.to/JIC001"
+        target="_blank"
+        rel="noopener"
+        data-cta="outbound"
+        data-label="form_register_2"
+        onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'cta_click','cta':'form_register_2','target':'jah_to_form'});">
+        <img class="cta-img" src="./images/04填表登記.gif" alt="填表登記索取甲魚膠優惠" loading="lazy" />
+      </a>
       </div>
     </section>
 
@@ -634,6 +644,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    aria-label="電話諮詢 0800-520-688"
    data-cta="call"
    data-label="call_sticky"
+   style="display:block; width:100%;"
    onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'telclick','tel':'0800520688','pos':'sticky'});">
   <img class="sticky-img" src="./images/05電話諮詢.gif" alt="一對一電話諮詢" loading="lazy" />
 </a>
