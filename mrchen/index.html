@@ -630,9 +630,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- 置底 CTA：電話諮詢 -->
   <div class="sticky" aria-label="置底固定 CTA">
     <div class="sticky-inner">
-      <a href="tel:0800520688" aria-label="電話諮詢 0800-520-688" data-cta="call" data-label="call_sticky">
-        <img class="sticky-img" src="./images/05電話諮詢.gif" alt="一對一電話諮詢" loading="lazy" />
-      </a>
+<a href="tel:0800520688"
+   aria-label="電話諮詢 0800-520-688"
+   data-cta="call"
+   data-label="call_sticky"
+   onclick="window.dataLayer=window.dataLayer||[];dataLayer.push({'event':'telclick','tel':'0800520688','pos':'sticky'});">
+  <img class="sticky-img" src="./images/05電話諮詢.gif" alt="一對一電話諮詢" loading="lazy" />
+</a>
     </div>
   </div>
 
